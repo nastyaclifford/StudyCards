@@ -1,0 +1,26 @@
+@import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+
+.table{
+    margin-top: 10vh;
+    width: 55vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    background-color: $color-sunspurple;
+    @include general;
+}
+.row{
+    display:grid;
+    grid-template-columns: 28% 28% 28% 16%;
+    @include title;
+    color: $color-lavender;
+    text-align: center;
+   
+}
+.col{
+    border: 1px solid $color-plum;
+    padding-left: 1vw;
+    height: 5vh;
+    display: grid;
+    align-items: center;
+}

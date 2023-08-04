@@ -1,0 +1,20 @@
+@import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+
+.col{
+    border: 2px solid $color-sunspurple;
+    height: 50vh;
+    width: 28vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: $color-thistle;
+@include card;
+color: $color-deeppurple;
+}
+
+.button_show {
+    @include button;
+}

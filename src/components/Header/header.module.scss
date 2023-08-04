@@ -1,0 +1,40 @@
+@import "../../styles/fonts.scss";
+@import "../../styles/vars.scss";
+
+.header{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    height: 18vh;
+    align-items: center;
+    background-color: $color-sunspurple;
+    justify-items: center;
+}
+
+.logo{
+    @include headline;
+    font-size: 3rem;
+}
+
+.item{
+    text-decoration: none;
+    margin-left: 10vh;
+    @include headline;
+}
+.item:hover{
+    color: $color-deeppurple;
+}
+
+.button{
+    @include headline;
+    margin-top: 5vh;
+}
+
+.button_text{
+    @include headline;
+    color: $color-sunspurple;
+}
+
+.button:hover +  .button_text{
+    color: $color-deeppurple;
+   
+}

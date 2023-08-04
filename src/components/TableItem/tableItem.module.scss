@@ -1,0 +1,45 @@
+@import "../../styles/vars.scss";
+@import "../../styles/fonts.scss";
+.row{
+    display:grid;
+    grid-template-columns: 28% 28% 28% 10% 6%;
+}
+.col{
+    border: 1px solid $color-plum;
+    padding-left: 1rem;
+    height: 2rem;
+    display: grid;
+    align-items: center;
+    color: $color-deeppurple;
+}
+
+.row_noDisplay {
+    display: none;
+}
+.col_buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button:hover{
+color: $color-lavender;
+}
+
+.input{
+    @include general;
+    background-color: $color-thistle;
+    border-top: 1px solid $color-plum;;
+    border-right: 1px solid $color-plum;;
+    border-bottom: 1px solid $color-plum;;
+    border-left: 1px solid $color-plum;
+    color: $color-deeppurple;
+}
+.input:focus{
+    outline:none;
+    background-color: $color-lavender;
+    color: $color-darkpurple;
+    @include general;
+}
+::placeholder {
+    color: $color-plum;
+}
