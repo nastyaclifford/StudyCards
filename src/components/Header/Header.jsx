@@ -1,9 +1,9 @@
 import style from "./header.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightToBracket, faHandSparkles } from '@fortawesome/free-solid-svg-icons';
+import { faRightToBracket, faHandSparkles } from '@fortawesome/free-solid-svg-icons'; //импортируем нужные нам иконки
 
 
-export default function Header() {
+export default function Header() { //создаем компонент Header
     return(
         <div className={style.header}>
             < div className= {style.logo}>

@@ -1,13 +1,13 @@
 import Card from "../Card/Card"
 import words from "../../data/words.json"
-import style from "./slider.module.scss"
+import style from "./slider.module.scss" //импортируем компонент Card, массив с данными для карточек, стили
 
 
-function Slider(){
-    const i = Math.floor(Math.random() * words.length);
-    const object = words[i];
+function Slider(){ //создаем компонент Slider
+    const i = Math.floor(Math.random() * words.length); //создаем переменную для рандомного индекса информации о карточке (объекта массива)
+    const object = words[i]; //создаем переменную для рандомной карточки 
 
-    return (
+    return ( //возвращаем разметку и вызываем нужную нам информацию для компонента Card из объекта из массива
         <div className={style.slider}>
         
         <Card 

@@ -1,22 +1,22 @@
 import style from './tableItem.module.scss'
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons'; //подключаем стили, состояние useState, иконки
 
 
 
-export default function Table(props) {
-    const [deleted, setDeleted] = useState (true);
-    const [edit, setEdit] = useState (true);
+export default function TableItem(props) { //создаем компонент TableItem
+    const [deleted, setDeleted] = useState (true); //задаем состояние для кнопки удаления
+    const [edit, setEdit] = useState (true); //задаем состояние для кнопки редактирования
 
-    function deleteWord () {
+    function deleteWord () { //создаем функцию для кнопки удаления, которая будет менять состояние на deleted - false
         setDeleted(!deleted)
     }
 
-    function editWord () {
+    function editWord () { ////создаем функцию для кнопки редактирования, которая будет менять состояние на edit - false
         setEdit(!edit)
     }
-    return(
+    return( //возвращаем разметку для строки в таблице с информацией о слове, добавляем кнопки удаления и редактирования, вешаем на них обработчики событий
         <div className={deleted === true ? style.row : style.row_noDisplay}>
                     {edit === true ? <div className={style.col}>{props.english}</div> : <input className={style.input} placeholder={props.english}></input>}
                     {edit === true ?<div className={style.col}>{props.transcription}</div> : <input className={style.input} placeholder={props.transcription}></input>}

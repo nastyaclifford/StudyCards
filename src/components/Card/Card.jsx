@@ -1,25 +1,25 @@
 import style from './card.module.scss'
-import { useState } from 'react';
-
-export default function Card(props) {
-
-    const { english, transcription, russian} = props;
-    const [translated, setTranslated] = useState (true);
+import { useState } from 'react'; //подключаем стили, состояние useState
 
 
-    function showTranslation () {
-        setTranslated(!translated)
+export default function Card(props) { //создаем компонент Card
+
+    const { english, transcription, russian} = props; //обращаемся к пропсам, которые находятся в компоненте Slider
+    const [translated, setTranslated] = useState (true); //создаем состояние для кнопки перевода
+
+
+    function showTranslation () { //создаем функцию, которая сработает при нажатии на кнопку перевода
+        setTranslated(!translated) //изменить translated на false
     }
 
    
-    return(
+    return( //возвращаем разметку для карточки, вставляем значения из пропсов, добавляем обработчик события onclick кнопке и условия показа перевода
         <div>
                 <div className={style.col}>
                     <div className={style.row}>{english}</div>
                     <div className={style.row}>{transcription}</div>
                     <div className={style.row}>
-                        {translated === true ? <button onClick={showTranslation} className={style.button_show}>Show translation</button> : <div onClick={showTranslation} className={style.row}>{russian}</div>}
-                        
+                        {translated === true ? <button onClick={showTranslation} className={style.button_show}>Show translation</button> : <div onClick={showTranslation} className={style.row}>{russian}</div>} 
                     </div>
                 </div>  
                 </div>
