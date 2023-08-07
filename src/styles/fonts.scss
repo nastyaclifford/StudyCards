@@ -5,7 +5,7 @@
     font-size: 1rem;
     }
 
-    @mixin card {
+@mixin card {
         font-family: 'Concert One', cursive;
         font-size: 2.3rem;
         }
@@ -21,13 +21,41 @@
     font-family: 'Concert One', cursive;
     font-size: 2rem;
     color: $color-lavender;
-    & :hover {
+    &:hover {
         color: $color-deeppurple;
+        transform: scale(140%);
     }
 }
 
 
-@mixin button {
+@mixin button-lg {
     font-family: 'Concert One', cursive;
     font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: $color-plum;
+    color: $color-lavender;
+    height: 3rem;
+    width: 13rem;
+    &:hover {
+        color: $color-deeppurple;
+        transform: scale(120%);
+    }
+    
+}
+
+@mixin button-sm {
+    font-family: 'Concert One', cursive;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: $color-plum;
+    color: $color-lavender;
+    height: 3rem;
+    width: 4rem;
+    &:hover {
+        color: $color-deeppurple;
+        transform: scale(120%);
+    }
+    
 }

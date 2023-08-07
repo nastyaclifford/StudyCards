@@ -16,5 +16,7 @@ color: $color-deeppurple;
 }
 
 .button_show {
-    @include button;
+    @include button-lg;
+    
 }
+

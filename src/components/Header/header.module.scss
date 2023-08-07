@@ -20,21 +20,9 @@
     margin-left: 10vh;
     @include headline;
 }
-.item:hover{
-    color: $color-deeppurple;
-}
 
 .button{
     @include headline;
-    margin-top: 5vh;
 }
 
-.button_text{
-    @include headline;
-    color: $color-sunspurple;
-}
 
-.button:hover +  .button_text{
-    color: $color-deeppurple;
-   
-}

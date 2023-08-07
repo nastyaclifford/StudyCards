@@ -16,8 +16,8 @@ export default function Header() { //создаем компонент Header
                 <a className={style.item} href=" ">Additional</a>
             </nav>
 <div className={style.login}>
-    <div className={style.button}><FontAwesomeIcon icon={faRightToBracket} /></div>
-    <div className={style.button_text}>Log in</div>
+    <div className={style.button}><FontAwesomeIcon icon={faRightToBracket} /> </div>
+   
 </div>
         </div>
     )
