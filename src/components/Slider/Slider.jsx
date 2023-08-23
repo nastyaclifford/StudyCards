@@ -42,7 +42,8 @@ if (!words){ // если массив не был передан, то высв�
         transcription = {object.transcription}
         russian = {object.russian}
         index = {object.index}
-        key = {object.index}/>
+        key = {object.index}
+        />
     <button className={style.button_next} onClick={handleClickNext}><FontAwesomeIcon icon={faCircleRight} /></button>
        </div>
         

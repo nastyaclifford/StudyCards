@@ -17,10 +17,8 @@ function Table(){ //создаем компонент Table
         </div>
         {words.map ((item, index)=> (
         <TableItem 
-        english = {item.english}
-        transcription = {item.transcription}
-        russian = {item.russian}
-        key = {index}/>))}</div>
+        key = {index}
+        {...item}/>))}</div>
         </div>
         
     )
