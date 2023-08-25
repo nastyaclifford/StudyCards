@@ -3,31 +3,18 @@
 
 .container{
     background-color: $color-thistle;
+    height: 100vh;
 
 }
 
-
-.header{
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    height: 18vh;
-    align-items: center;
-    background-color: $color-sunspurple;
-    justify-items: center;
-}
-
-.logo{
+.intro{
     @include headline;
-    font-size: 3rem;
+    color: $color-deeppurple;
+    text-align: center;
 }
 
-.item{
-    text-decoration: none;
-    margin-left: 10vh;
-    @include headline;
+.text{
+    @include title;
+    text-align: center;
+    color: $color-deeppurple;
 }
-
-.button{
-    @include headline;
-}
-

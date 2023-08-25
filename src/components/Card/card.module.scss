@@ -20,3 +20,23 @@ color: $color-deeppurple;
     
 }
 
+@media (max-width:700px){
+    .col{
+        width: 58vw;
+    }
+}
+
+@media (min-width:701px) and (max-width:900px){
+    .col{
+        height: 40vh;
+        width: 50vw;
+    }
+}
+
+@media (min-width:901px) and (max-width:1000px){
+    .col{
+        height: 34vh;
+        width: 45vw;
+    }
+}
+

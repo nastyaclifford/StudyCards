@@ -24,3 +24,41 @@
     display: grid;
     align-items: center;
 }
+
+@media (max-width:701px){
+    .table{
+    margin-top: 3vh;
+    width: 95vw;
+    margin-left: 0vw;
+    margin-right: 0vw;
+    font-size: 0.7rem;
+    }
+    .row{
+        grid-template-columns: 20% 25% 30% 25%;
+        font-size: 0.9rem;    
+    }
+}
+
+@media (min-width:701px) and (max-width:900px){
+    .table{
+        margin-top: 5vh;
+        width: 95vw;
+        margin-left: 2vw;
+        }
+}
+@media (min-width:901px) and (max-width:1000px){
+    .table{
+        margin-top: 5vh;
+        width: 85vw;
+        font-size: 1.2rem;
+        margin-left: 8vw;
+        }
+        .row{
+            grid-template-columns: 20% 20% 35% 25%;
+            font-size: 0.9rem;   
+}}
+
+@media (min-width: 1001px) and (max-width: 1290px){
+    .table{
+        width: 65vw;
+        }}
