@@ -1,6 +1,7 @@
 import Table from "./Table/Table"
 import Slider from "./Slider/Slider"
 import Home from "./Home/Home"
+import Notfound from "./Notfound/Notfound"
 import "../styles/App.scss" 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket, faHandSparkles } from '@fortawesome/free-solid-svg-icons'; //импортируем нужные нам иконки
@@ -31,6 +32,7 @@ function App() {
     <Route path="startpractising" element={<Slider/>}/>
     <Route path="allwords" element={<Table/>}/>
     <Route path="about" element={<Home/>}/>
+    <Route path="*" element={<Notfound />} />
        </Routes>
        </ BrowserRouter>
     

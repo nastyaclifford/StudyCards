@@ -1,0 +1,20 @@
+@import "../../styles/fonts.scss";
+@import "../../styles/vars.scss";
+
+.container{
+    background-color: $color-thistle;
+    height: 100vh;
+
+}
+
+.intro{
+    @include headline;
+    color: $color-deeppurple;
+    text-align: center;
+}
+
+.text{
+    @include title;
+    text-align: center;
+    color: $color-deeppurple;
+}
