@@ -1,4 +1,4 @@
-import style from "./home.module.scss" 
+import style from "../Home/home.module.scss" 
 //импортируем компоненты и стили
 
 

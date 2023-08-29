@@ -1,4 +1,4 @@
-import Card from "../Card/Card"
+import Card from "../../components/Card/Card"
 import arr from "../../data/words.json"
 import { useState, useEffect } from 'react'
 import style from "./slider.module.scss"

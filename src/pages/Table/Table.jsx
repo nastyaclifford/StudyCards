@@ -1,4 +1,4 @@
-import TableItem from "../TableItem/TableItem"
+import TableItem from "../../components/TableItem/TableItem"
 import words from "../../data/words.json"
 import style from './table.module.scss' //импортируем компонент TableItem, массив с информацией о карточках, стили
 
