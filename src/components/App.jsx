@@ -17,7 +17,7 @@ function App() {
                 </div>
                 <nav className="nav">
                     <NavLink className="item" href=" " to="about">About</NavLink> 
-                    <NavLink className="item" href=" " to="startpractising">Start Practising</NavLink> 
+                    <NavLink className="item" href=" " to="startpractising">Start Practicing</NavLink> 
                     <NavLink className="item" href=" " to="allwords">All Words</NavLink> 
                     <NavLink className="item" href=" " to="additional">Additional</NavLink>
                 </nav>

@@ -6,7 +6,7 @@ function Notfound(){ //создаем компонент Home и подключ�
 
 <div className={style.container}>
 <h1 className={style.intro}>404</h1>
-<div className={style.text}>Ops! It looks like you got lost!</div>
+<div className={style.text}>Oops! It looks like you got lost!</div>
         </div>
     
         
