@@ -1,5 +1,5 @@
-import style from './tableItem.module.scss'
 import { useState } from 'react';
+import style from './tableItem.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons'; //подключаем стили, состояние useState, иконки
 

@@ -1,5 +1,5 @@
-import style from './card.module.scss'
-import { useState } from 'react'; //подключаем стили, состояние useState
+import { useState } from 'react'
+import style from './card.module.scss'; //подключаем стили, состояние useState
 
 
 export default function Card(props) { //создаем компонент Card

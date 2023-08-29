@@ -1,6 +1,6 @@
+import { useState, useEffect } from 'react'
 import Card from "../../components/Card/Card"
 import arr from "../../data/words.json"
-import { useState, useEffect } from 'react'
 import style from "./slider.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleLeft,faCircleRight } from '@fortawesome/free-solid-svg-icons';  //импортируем компонент Card, массив с данными для карточек, стили

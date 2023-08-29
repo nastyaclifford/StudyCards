@@ -23,6 +23,10 @@
 
 .nav{
     display: flex;
+    .active{
+        color: $color-deeppurple;
+        transform: scale(120%);
+    }
 }
 .item{
     text-decoration: none;

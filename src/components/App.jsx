@@ -1,37 +1,42 @@
+import {
+    BrowserRouter as Router, Routes, NavLink, Route
+} from 'react-router-dom'
 import { Home, Notfound, Slider, Table} from "../pages/index"
 import "../styles/App.scss" 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket, faHandSparkles } from '@fortawesome/free-solid-svg-icons'; //импортируем нужные нам иконки
-import {
-    BrowserRouter, Routes,Link, Route
-} from 'react-router-dom';//импортируем компоненты и стили
+;//импортируем компоненты и стили
 
 function App() {
   return (
     <div className="container">
-    <BrowserRouter>
-    <div className="header">
+    <Router>
+        <header className="header">
                 < div className= "logo">
                     <FontAwesomeIcon icon={faHandSparkles} />
                 </div>
                 <nav className="nav">
-                    <Link className="item" href=" " to="about">About</Link> 
-                    <Link className="item" href=" " to="startpractising">Start Practising</Link> 
-                    <Link className="item" href=" " to="allwords">All Words</Link> 
-                    <Link className="item" href=" " to="additional">Additional</Link>
+                    <NavLink className="item" href=" " to="about">About</NavLink> 
+                    <NavLink className="item" href=" " to="startpractising">Start Practising</NavLink> 
+                    <NavLink className="item" href=" " to="allwords">All Words</NavLink> 
+                    <NavLink className="item" href=" " to="additional">Additional</NavLink>
                 </nav>
     <div className="login">
         <div className="button"><FontAwesomeIcon icon={faRightToBracket} /> </div>
             </div>
-            </div>
-       
+            </header>
+       <main>
       <Routes>
+    <Route path="/" element={<Home/>}/>
+    <Route path="about" element={<Home/>}/>
     <Route path="startpractising" element={<Slider/>}/>
     <Route path="allwords" element={<Table/>}/>
-    <Route path="about" element={<Home/>}/>
+   
     <Route path="*" element={<Notfound />} />
        </Routes>
-       </ BrowserRouter>
+       </main>
+       <footer></footer>
+       </ Router>
     
     
             </div>)
