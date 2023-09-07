@@ -13,9 +13,14 @@ function Slider(){ //создаем компонент Slider
 
     const [words, setWords] = useState ([false]) //сохраняем массив данных
     const [count, setCount] = useState (0) //получаем индекс объекта массива, чтобы получить нужный нам объект, изначальный индекс 0
+    const [cardCount, setCardCount] = useState (0) //задаем состояние для подсчета изученных карточек
     useEffect (() => {setWords (arr)}, []) //запрос к массиву 1 раз, когда создается компонент
 
     const object = words[count] //создаем переменную для объекта массива
+
+function handleClickCount (){ //создаем функцию для подсчета изученных карточек
+    setCardCount(cardCount + 1);
+}    
 
 function handleClickPrev (){ //создаем функцию для показа предыдущей карточки
 let copyCount = count //копируем count, тк мы не можем напрямую его менять из состояния
@@ -35,6 +40,7 @@ if (!words){ // если массив не был передан, то высв�
 
 
     return ( //возвращаем разметку и вызываем нужную нам информацию для компонента Card из объекта из массива, а также вешаем обработчики событий на кнопки 
+        <div>
         <div className={style.slider}>
          <button className={style.button_prev} onClick={handleClickPrev}><FontAwesomeIcon icon={faCircleLeft} /></button> 
         <Card 
@@ -43,9 +49,14 @@ if (!words){ // если массив не был передан, то высв�
         russian = {object.russian}
         index = {object.index}
         key = {object.index}
+        countfunction = {handleClickCount}
         />
     <button className={style.button_next} onClick={handleClickNext}><FontAwesomeIcon icon={faCircleRight} /></button>
+    
        </div>
+       <div className={style.text}>Cards studied: {cardCount}</div>
+       </div>
+       
         
     )
 }

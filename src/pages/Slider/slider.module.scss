@@ -15,3 +15,11 @@
     @include button-sm;
 }
 
+.text{
+
+    margin: 2rem;
+    text-align: center;
+    color: $color-deeppurple;
+    @include card;
+}
+

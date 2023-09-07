@@ -4,12 +4,13 @@ import style from './card.module.scss'; //подключаем стили, со�
 
 export default function Card(props) { //создаем компонент Card
 
-    const { english, transcription, russian} = props; //обращаемся к пропсам, которые находятся в компоненте Slider
+    const { english, transcription, russian, countfunction} = props; //обращаемся к пропсам, которые находятся в компоненте Slider
     const [translated, setTranslated] = useState (true); //создаем состояние для кнопки перевода
 
 
     function showTranslation () { //создаем функцию, которая сработает при нажатии на кнопку перевода
-        setTranslated(!translated) //изменить translated на false
+        setTranslated(!translated); //изменить translated на false
+        countfunction ();  
     }
 
    
@@ -19,7 +20,7 @@ export default function Card(props) { //создаем компонент Card
                     <div className={style.row}>{english}</div>
                     <div className={style.row}>{transcription}</div>
                     <div className={style.row}>
-                        {translated === true ? <button onClick={showTranslation} className={style.button_show}>Show translation</button> : <div onClick={showTranslation} className={style.row}>{russian}</div>} 
+                        {translated === true ? <button onClick={showTranslation} className={style.button_show}>Show translation</button> : <div className={style.row}>{russian}</div>} 
                     </div>
                 </div>  
                 </div>
