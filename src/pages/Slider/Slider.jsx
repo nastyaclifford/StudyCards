@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Card from "../../components/Card/Card"
 import arr from "../../data/words.json"
 import style from "./slider.module.scss"
@@ -19,6 +19,7 @@ function Slider(){ //создаем компонент Slider
     useEffect (() => {setWords (arr)}, []) //запрос к массиву 1 раз, когда создается компонент
 
     const object = words[count] //создаем переменную для объекта массива
+    
 
     function handleClickCount (){ //создаем функцию для подсчета изученных карточек
         setCardCount(cardCount + 1);
@@ -49,7 +50,7 @@ if (!words){ // если массив не был передан, то высв�
 }
 
 
-    return ( //возвращаем разметку и вызываем нужную нам информацию для компонента Card из объекта из массива, а также вешаем обработчики событий на кнопки 
+    return ( 
         <div>
         <div className={style.slider}>
          <button className={style.button_prev} onClick={handleClickPrev}><FontAwesomeIcon icon={faCircleLeft} /></button> 
@@ -61,6 +62,7 @@ if (!words){ // если массив не был передан, то высв�
         key = {object.index}
         translated = {translated}
         showTranslation = {showTranslation}
+        
         />
     <button className={style.button_next} onClick={handleClickNext}><FontAwesomeIcon icon={faCircleRight} /></button>
     
