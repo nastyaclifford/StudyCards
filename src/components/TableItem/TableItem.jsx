@@ -8,6 +8,7 @@ import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesom
 export default function TableItem(props) { //создаем компонент TableItem
     const [deleted, setDeleted] = useState (true); //задаем состояние для кнопки удаления
     const [edit, setEdit] = useState (true); //задаем состояние для кнопки редактирования
+    const {english, transcription, russian} = props;
 
     function deleteWord () { //создаем функцию для кнопки удаления, которая будет менять состояние на deleted - false
         setDeleted(!deleted)
@@ -18,9 +19,9 @@ export default function TableItem(props) { //создаем компонент T
     }
     return( //возвращаем разметку для строки в таблице с информацией о слове, добавляем кнопки удаления и редактирования, вешаем на них обработчики событий
         <div className={deleted === true ? style.row : style.row_noDisplay}>
-                    {edit === true ? <div className={style.col}>{props.english}</div> : <input className={style.input} placeholder={props.english}></input>}
-                    {edit === true ?<div className={style.col}>{props.transcription}</div> : <input className={style.input} placeholder={props.transcription}></input>}
-                    {edit === true ? <div className={style.col}>{props.russian}</div> : <input className={style.input} placeholder={props.russian}></input>}
+                    {edit === true ? <div className={style.col}>{english}</div> : <input className={style.input} placeholder={props.english}></input>}
+                    {edit === true ?<div className={style.col}>{transcription}</div> : <input className={style.input} placeholder={props.transcription}></input>}
+                    {edit === true ? <div className={style.col}>{russian}</div> : <input className={style.input} placeholder={props.russian}></input>}
                     <div className={style.col}>
                     <div className={style.col_buttons}>
                     {edit === true ? " " : <div className={style.button}><FontAwesomeIcon icon={faCircleCheck} /></div>}
