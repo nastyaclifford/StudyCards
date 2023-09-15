@@ -1,0 +1,90 @@
+.container {
+  background-color: #d1c4e9;
+  max-height: 100%;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  height: 18vh;
+  align-items: center;
+  background-color: #b39ddb;
+  justify-items: center;
+}
+
+.logo {
+  font-size: 3rem;
+  font-family: "Concert One", cursive;
+  font-size: 2rem;
+  color: #ede7f6;
+}
+.logo:hover {
+  color: #311992;
+  transform: scale(120%);
+}
+
+.nav {
+  display: flex;
+}
+.nav .active {
+  color: #311992;
+  transform: scale(120%);
+}
+
+.item {
+  text-decoration: none;
+  margin-left: 2.5rem;
+  font-family: "Concert One", cursive;
+  font-size: 2rem;
+  color: #ede7f6;
+}
+.item:hover {
+  color: #311992;
+  transform: scale(120%);
+}
+
+.button {
+  font-family: "Concert One", cursive;
+  font-size: 2rem;
+  color: #ede7f6;
+}
+.button:hover {
+  color: #311992;
+  transform: scale(120%);
+}
+
+@media (max-width: 780px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .item {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 781px) and (max-width: 900px) {
+  .nav {
+    display: flex;
+  }
+  .item {
+    font-size: 1.5rem;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 901px) and (max-width: 1000px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .item {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1070px) {
+  .item {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+  }
+}/*# sourceMappingURL=App.css.map */

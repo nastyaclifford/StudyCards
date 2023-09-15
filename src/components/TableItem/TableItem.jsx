@@ -1,34 +1,49 @@
 import { useState } from 'react';
 import style from './tableItem.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons'; //подключаем стили, состояние useState, иконки
+import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons'; 
 
 
 
-export default function TableItem(props) { //создаем компонент TableItem
-    const [deleted, setDeleted] = useState (true); //задаем состояние для кнопки удаления
-    const [edit, setEdit] = useState (true); //задаем состояние для кнопки редактирования
+export default function TableItem(props) {
+    const [deleted, setDeleted] = useState (true); 
+    const [edit, setEdit] = useState (true); 
+    const [newEnglish, setNewEnglish] = useState('');
+    const [newTranscription, setNewTranscription] = useState('');
+    const [newRussian, setNewRussian] = useState('');
     const {english, transcription, russian} = props;
 
-    function deleteWord () { //создаем функцию для кнопки удаления, которая будет менять состояние на deleted - false
+    const handleChange = event => {
+        const {name,value }= event.target;
+        if (name === 'newEnglish') {
+          setNewEnglish(value);
+        } else if (name === 'newTranscription') {
+          setNewTranscription(value);
+        } else if (name === 'newRussian') {
+          setNewRussian(value);
+        }
+      };
+
+
+    function deleteWord () { 
         setDeleted(!deleted)
     }
 
-    function editWord () { ////создаем функцию для кнопки редактирования, которая будет менять состояние на edit - false
+    function editWord () { 
         setEdit(!edit)
     }
-    return( //возвращаем разметку для строки в таблице с информацией о слове, добавляем кнопки удаления и редактирования, вешаем на них обработчики событий
+    return( 
         <div className={deleted === true ? style.row : style.row_noDisplay}>
-                    {edit === true ? <div className={style.col}>{english}</div> : <input className={style.input} placeholder={props.english}></input>}
-                    {edit === true ?<div className={style.col}>{transcription}</div> : <input className={style.input} placeholder={props.transcription}></input>}
-                    {edit === true ? <div className={style.col}>{russian}</div> : <input className={style.input} placeholder={props.russian}></input>}
+                    {edit === true ? <div className={style.col}>{english}</div> : <input name="newEnglish" onChange={handleChange} className={newEnglish.length === 0 ? style.input_error : style.input} placeholder={props.english}></input>}
+                    {edit === true ?<div className={style.col}>{transcription}</div> : <input name="newTranscription" onChange={handleChange} className={newTranscription.length === 0 ? style.input_error : style.input} placeholder={props.transcription}></input>}
+                    {edit === true ? <div className={style.col}>{russian}</div> : <input name="newRussian" onChange={handleChange} className={newRussian.length === 0 ? style.input_error : style.input} placeholder={props.russian}></input>}
                     <div className={style.col}>
                     <div className={style.col_buttons}>
-                    {edit === true ? " " : <div className={style.button}><FontAwesomeIcon icon={faCircleCheck} /></div>}
-                         {edit === true ? <div onClick={editWord} className={style.button}><FontAwesomeIcon icon={faPenToSquare} /></div>: <div onClick={editWord} className={style.button}><FontAwesomeIcon icon={faRotateLeft} /></div>}
+                    {edit === true ? " " : <button disabled= {newEnglish.length === 0 || newTranscription.length === 0 || newRussian.length === 0} ><FontAwesomeIcon icon={faCircleCheck} /></button>}
+                         {edit === true ? <button onClick={editWord} ><FontAwesomeIcon icon={faPenToSquare} /></button>: <button onClick={editWord} ><FontAwesomeIcon icon={faRotateLeft} /></button>}
                     </div> </div>
                     <div className={style.col}>
-                    <div onClick={deleteWord} className={style.button}><FontAwesomeIcon icon={faTrash} /></div>
+                    <button onClick={deleteWord} ><FontAwesomeIcon icon={faTrash} /></button>
                     </div> 
                 </div>  
     )

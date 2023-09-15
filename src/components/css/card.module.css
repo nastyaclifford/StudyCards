@@ -1,0 +1,51 @@
+.col {
+  border: 2px solid #b39ddb;
+  height: 50vh;
+  width: 28vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: #d1c4e9;
+  font-family: "Concert One", cursive;
+  font-size: 2.3rem;
+  color: #311992;
+}
+
+.button_show {
+  font-family: "Concert One", cursive;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #9575cd;
+  color: #ede7f6;
+  height: 3rem;
+  width: 13rem;
+}
+.button_show:hover {
+  color: #311992;
+  transform: scale(120%);
+}
+
+.button_show:focus {
+  border: 4px solid rgb(79, 9, 79);
+}
+
+@media (max-width: 700px) {
+  .col {
+    width: 58vw;
+  }
+}
+@media (min-width: 701px) and (max-width: 900px) {
+  .col {
+    height: 40vh;
+    width: 50vw;
+  }
+}
+@media (min-width: 901px) and (max-width: 1000px) {
+  .col {
+    height: 34vh;
+    width: 45vw;
+  }
+}/*# sourceMappingURL=card.module.css.map */

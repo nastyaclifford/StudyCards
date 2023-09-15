@@ -21,10 +21,6 @@
     justify-content: space-evenly;
 }
 
-.button:hover{
-color: $color-lavender;
-}
-
 .input{
     @include general;
     background-color: $color-thistle;
@@ -43,7 +39,27 @@ color: $color-lavender;
 ::placeholder {
     color: $color-plum;
 }
+.input_error {
+    border: 2px solid red;
+}
 
+button {
+    background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    color: $color-deeppurple;
+}
+button:hover{
+    color: $color-lavender;
+    }
+    
+ button:disabled {
+    pointer-events: none;
+    color: grey;
+ }
 
 @media (max-width:700px){
     .row{
