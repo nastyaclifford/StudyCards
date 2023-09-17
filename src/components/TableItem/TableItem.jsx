@@ -78,9 +78,9 @@ function isValidString(str, charset) {
     }
     return( 
         <div className={deleted === true ? style.row : style.row_noDisplay}>
-                    {edit === true ? <div className={style.col}>{english}</div> : <input name="newEnglish" onChange={handleChange} onKeyPress = {checkLang} className={newEnglish.length === 0 ? style.input_error : style.input} placeholder={props.english}></input>}
-                    {edit === true ?<div className={style.col}>{transcription}</div> : <input name="newTranscription" onChange={handleChange} onKeyPress = {checkLang} className={newTranscription.length === 0 ? style.input_error : style.input} placeholder={props.transcription}></input>}
-                    {edit === true ? <div className={style.col}>{russian}</div> : <input name="newRussian" onChange={handleChange} onKeyPress = {checkLang} className={newRussian.length === 0 ? style.input_error : style.input} placeholder={props.russian}></input>}
+                    {edit === true ? <div className={style.col}>{english}</div> : <input name="newEnglish" onChange={handleChange} onKeyPress = {checkLang} className={newEnglish.length === 0 ? style.input_error : style.input} placeholder={english}></input>}
+                    {edit === true ?<div className={style.col}>{transcription}</div> : <input name="newTranscription" onChange={handleChange} onKeyPress = {checkLang} className={newTranscription.length === 0 ? style.input_error : style.input} placeholder={transcription}></input>}
+                    {edit === true ? <div className={style.col}>{russian}</div> : <input name="newRussian" onChange={handleChange} onKeyPress = {checkLang} className={newRussian.length === 0 ? style.input_error : style.input} placeholder={russian}></input>}
                     <div className={style.col}>
                     <div className={style.col_buttons}>
                     {edit === true ? " " : <button disabled= {newEnglish.length === 0 || newTranscription.length === 0 || newRussian.length === 0}  onClick={onSaveButtonClick} ><FontAwesomeIcon icon={faCircleCheck} /></button>}
