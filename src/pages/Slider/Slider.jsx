@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Card from "../../components/Card/Card"
+import { MyContext } from "../../context/MyContext";
+import { useContext } from "react";
 import arr from "../../data/words.json"
 import style from "./slider.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,10 +14,11 @@ function Slider(){ //создаем компонент Slider
     const object = words[i]; //создаем переменную для рандомной карточки **/
 
     const [translated, setTranslated] = useState (true); //создаем состояние для кнопки перевода
-    const [words, setWords] = useState ([false]) //сохраняем массив данных
+    //const [words, setWords] = useState ([false]) //сохраняем массив данных
     const [count, setCount] = useState (0) //получаем индекс объекта массива, чтобы получить нужный нам объект, изначальный индекс 0
     const [cardCount, setCardCount] = useState (0) //задаем состояние для подсчета изученных карточек
-    
+    const {words, setWords} = useContext(MyContext) 
+
     useEffect (() => {setWords (arr)}, []) //запрос к массиву 1 раз, когда создается компонент
 
     const object = words[count] //создаем переменную для объекта массива
