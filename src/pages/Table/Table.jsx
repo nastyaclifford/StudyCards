@@ -1,11 +1,15 @@
 import TableItem from "../../components/TableItem/TableItem"
-import words from "../../data/words.json"
+//import words from "../../data/words.json"
+import { MyContext } from "../../context/MyContext";
+import { useContext } from "react";
 import style from './table.module.scss' //импортируем компонент TableItem, массив с информацией о карточках, стили
 
 
 
+
 function Table(){ //создаем компонент Table
- 
+    const {words} = useContext(MyContext) 
+    console.log ({words})
     return ( //возвращаем разметку таблицы, создаем функцию map для обращения к каждому объекту из массива и использования их в TableItem
         <div>
         <div className={style.table}>

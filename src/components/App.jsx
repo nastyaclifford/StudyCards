@@ -5,6 +5,7 @@ import { Home, Notfound, Slider, Table} from "../pages/index"
 import "../styles/App.scss" 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket, faHandSparkles } from '@fortawesome/free-solid-svg-icons'; //импортируем нужные нам иконки
+
 ;//импортируем компоненты и стили
 
 function App() {
