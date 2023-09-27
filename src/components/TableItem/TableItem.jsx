@@ -8,12 +8,11 @@ import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesom
 
 
 export default function TableItem(props) {
-    const [deleted, setDeleted] = useState (true); 
     const [edit, setEdit] = useState (true); 
     const [newEnglish, setNewEnglish] = useState('');
     const [newTranscription, setNewTranscription] = useState('');
     const [newRussian, setNewRussian] = useState('');
-    const {english, transcription, russian, id, word, flag, setFlag} = props;
+    const {english, transcription, russian, id, flag, setFlag} = props;
 
     const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const rusUpper = rusLower.toUpperCase()
@@ -40,15 +39,21 @@ export default function TableItem(props) {
       const {name}= event.target;
         if (name === 'newEnglish') {
             if (rus.includes(char)) {
-                alert ("English language expected")
+                alert ("English language expected");
+                event.target.value = '';
+                event.preventDefault()
             }
         } else if (name === 'newTranscription') {
             if (rus.includes(char)) {
-                alert ("English language expected")
+                alert ("English language expected");
+                event.target.value = '';
+                event.preventDefault()
             }
         } else if (name === 'newRussian') {
             if (en.includes(char)) {
-             alert ("Russian language expected")
+             alert ("Russian language expected");
+             event.target.value = '';
+             event.preventDefault()
         }
     }
 }
@@ -65,14 +70,16 @@ function isValidString(str, charset) {
         isValidString(newTranscription, en) &&
         isValidString(newRussian, rus)
       ) {
-        //console.log ("English:", newEnglish, "Transcription:", newTranscription, "Russian:", newRussian);
-      await PUT.putWord({
-        id: id,
-        english: newEnglish,
-        transcription: newTranscription,
-        russian: newRussian
-      }); 
-      setFlag(!flag)
+                const updatedData = {
+                id: id,
+                english: newEnglish,
+                transcription: newTranscription,
+                russian: newRussian,
+                tags: "",
+                tags_json: "[]"
+            };
+                await PUT.putWord(id, updatedData); 
+                setFlag(!flag); 
     } else 
         console.log("Please, check your words once again");
       }
