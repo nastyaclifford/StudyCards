@@ -8,7 +8,7 @@ import style from './table.module.scss' //импортируем компоне�
 
 
 function Table(){ //создаем компонент Table
-    const {words} = useContext(MyContext) 
+    const {words, flag, setFlag} = useContext(MyContext) 
     console.log ({words})
     return ( //возвращаем разметку таблицы, создаем функцию map для обращения к каждому объекту из массива и использования их в TableItem
         <div>
@@ -22,7 +22,7 @@ function Table(){ //создаем компонент Table
         {words.map ((item, index)=> (
         <TableItem 
         key = {index}
-        {...item}/>))}</div>
+        {...item} flag={flag} setFlag={setFlag}/>))}</div>
         </div>
         
     )

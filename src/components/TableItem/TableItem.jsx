@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import style from './tableItem.module.scss'
+import DEL from '../../services/DEL'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons'; 
 
@@ -11,7 +12,7 @@ export default function TableItem(props) {
     const [newEnglish, setNewEnglish] = useState('');
     const [newTranscription, setNewTranscription] = useState('');
     const [newRussian, setNewRussian] = useState('');
-    const {english, transcription, russian} = props;
+    const {english, transcription, russian, id, flag, setFlag} = props;
 
     const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const rusUpper = rusLower.toUpperCase()
@@ -69,15 +70,16 @@ function isValidString(str, charset) {
       }
   
 
-    function deleteWord () { 
-        setDeleted(!deleted)
+    async function deleteWord () { 
+        await DEL.delWord(id)
+        setFlag(!flag)
     }
 
     function editWord () { 
         setEdit(!edit)
     }
     return( 
-        <div className={deleted === true ? style.row : style.row_noDisplay}>
+        <div className={style.row}>
                     {edit === true ? <div className={style.col}>{english}</div> : <input name="newEnglish" onChange={handleChange} onKeyPress = {checkLang} className={newEnglish.length === 0 ? style.input_error : style.input} placeholder={english}></input>}
                     {edit === true ?<div className={style.col}>{transcription}</div> : <input name="newTranscription" onChange={handleChange} onKeyPress = {checkLang} className={newTranscription.length === 0 ? style.input_error : style.input} placeholder={transcription}></input>}
                     {edit === true ? <div className={style.col}>{russian}</div> : <input name="newRussian" onChange={handleChange} onKeyPress = {checkLang} className={newRussian.length === 0 ? style.input_error : style.input} placeholder={russian}></input>}
