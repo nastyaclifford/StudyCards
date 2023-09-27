@@ -4,7 +4,7 @@ export class PUT {
       const resp = await fetch(
         `http://itgirlschool.justmakeit.ru/api/words/${id}/update`,
         {
-          method: "PUT",
+          method: "POST",
           headers: { "Content-Type": "application/json;charset=utf-8" },
           body: JSON.stringify(word),
         }

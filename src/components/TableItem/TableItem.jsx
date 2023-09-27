@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import style from './tableItem.module.scss'
 import DEL from '../../services/DEL'
+import PUT from '../../services/PUT';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons'; 
 
@@ -12,7 +13,7 @@ export default function TableItem(props) {
     const [newEnglish, setNewEnglish] = useState('');
     const [newTranscription, setNewTranscription] = useState('');
     const [newRussian, setNewRussian] = useState('');
-    const {english, transcription, russian, id, flag, setFlag} = props;
+    const {english, transcription, russian, id, word, flag, setFlag} = props;
 
     const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const rusUpper = rusLower.toUpperCase()
@@ -58,14 +59,21 @@ function isValidString(str, charset) {
   }
   
 
-  function onSaveButtonClick() {
+  async function onSaveButtonClick() {
     if (
         isValidString(newEnglish, en) &&
         isValidString(newTranscription, en) &&
         isValidString(newRussian, rus)
       ) {
-        console.log ("English:", newEnglish, "Transcription:", newTranscription, "Russian:", newRussian);
-      } else 
+        //console.log ("English:", newEnglish, "Transcription:", newTranscription, "Russian:", newRussian);
+      await PUT.putWord({
+        id: id,
+        english: newEnglish,
+        transcription: newTranscription,
+        russian: newRussian
+      }); 
+      setFlag(!flag)
+    } else 
         console.log("Please, check your words once again");
       }
   
