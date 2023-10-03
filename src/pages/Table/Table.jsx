@@ -1,80 +1,85 @@
+import {observer} from 'mobx-react';
+import React, {useState } from "react";
+import DataMobX from '../../stores/WordsStore';
 import TableItem from "../../components/TableItem/TableItem"
 import POST from "../../services/POST";
-import { MyContext } from "../../context/MyContext";
-import { useContext, useState } from "react";
 import style from './table.module.scss' //импортируем компонент TableItem, массив с информацией о карточках, стили
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons'; 
 
 
 
-function Table(){ //создаем компонент Table
-    const {words, flag, setFlag} = useContext(MyContext)
-    const [newWordEng, setNewWordEng] = useState('')
-    const [newWordRus, setNewWordRus] = useState('')
+const Table = observer(()=>{
+const [newWordEng, setNewWordEng] = useState('')
+const [newWordRus, setNewWordRus] = useState('')
+const wordStore = DataMobX.wordStore;
+
+async function addWordToServer() {
+    if (newWordEng.trim() === '' || newWordRus.trim() === '') {
+        return;
+      }
+      const newWordData = {
+        id: "123", 
+        english: newWordEng,
+        transcription: "transcription", 
+        russian: newWordRus, 
+        tags: "",
+        tags_json: "[]"
+      };
+      await POST.postWord(newWordData);
+      setNewWordEng('');
+      setNewWordRus('');
+      wordStore.toggleFlag();
+}
+return ( //возвращаем разметку таблицы, создаем функцию map для обращения к каждому объекту из массива и использования их в TableItem
+    <DataMobX.observerComponent>
+    <div>
     
-    async function addWordToServer() {
-        if (newWordEng.trim() === '' || newWordRus.trim() === '') {
-            return;
-          }
-          const newWordData = {
-            id: "123", 
-            english: newWordEng,
-            transcription: "transcription", 
-            russian: newWordRus, 
-            tags: "",
-            tags_json: "[]"
-          };
-          await POST.postWord(newWordData);
-          setNewWordEng('');
-          setNewWordRus('');
-          setFlag(!flag);
-    }
-    return ( //возвращаем разметку таблицы, создаем функцию map для обращения к каждому объекту из массива и использования их в TableItem
-        <div>
-        
-        <div className={style.table}>
-        <div className={style.row_input}>
-        <input
-  type="text"
-  value={newWordEng}
-  onChange={(e) => setNewWordEng(e.target.value)} 
-  className = {style.input}
-  placeholder="English"
+    <div className={style.table}>
+    <div className={style.row_input}>
+    <input
+type="text"
+value={newWordEng}
+onChange={(e) => setNewWordEng(e.target.value)} 
+className = {style.input}
+placeholder="English"
 />
 <input
-  type="text"
-  value={newWordRus}
-  onChange={(e) => setNewWordRus(e.target.value)} 
-  className = {style.input} 
-  placeholder="Russian"
+type="text"
+value={newWordRus}
+onChange={(e) => setNewWordRus(e.target.value)} 
+className = {style.input} 
+placeholder="Russian"
 />
-                    <div className={style.col}>
-                   <button disabled= {newWordEng.length === 0 || newWordRus.length === 0}  onClick={addWordToServer} ><FontAwesomeIcon icon={faCircleCheck} /></button> 
-                </div>  
-                </div>  
-                </div>
+                <div className={style.col}>
+               <button disabled= {newWordEng.length === 0 || newWordRus.length === 0}  onClick={addWordToServer} ><FontAwesomeIcon icon={faCircleCheck} /></button> 
+            </div>  
+            </div>  
+            </div>
 
 
 
 
-       
-        <div className={style.table}>
-        <div className={style.row}>
-        <div className={style.col}>English</div>
-        <div className={style.col}>Transcription</div>
-        <div className={style.col}>Russian</div>
-        <div className={style.col}>Edit</div>
-        </div>
+   
+    <div className={style.table}>
+    <div className={style.row}>
+    <div className={style.col}>English</div>
+    <div className={style.col}>Transcription</div>
+    <div className={style.col}>Russian</div>
+    <div className={style.col}>Edit</div>
+    </div>
 
-        {words.map ((item, index)=> (
-        <TableItem 
-        key = {index}
-        {...item} flag={flag} setFlag={setFlag}/>))}</div>
-        
-        </div>
-        
-    )
-}
+{wordStore.words.map ((item, index)=> (
+    <TableItem 
+    key = {index}
+    {...item} flag={wordStore.flag} setFlag={wordStore.toggleFlag}/>
+    ))}
+    
+    </div>
+    
+    </div>
+    </DataMobX.observerComponent>
+    
+)})
 
 export default Table;
