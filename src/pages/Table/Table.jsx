@@ -1,6 +1,5 @@
-import {observer} from 'mobx-react';
+import {observer,inject} from 'mobx-react';
 import React, {useState } from "react";
-import DataMobX from '../../stores/WordsStore';
 import TableItem from "../../components/TableItem/TableItem"
 import POST from "../../services/POST";
 import style from './table.module.scss' //импортируем компонент TableItem, массив с информацией о карточках, стили
@@ -9,10 +8,10 @@ import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
 
 
 
-const Table = observer(()=>{
+const Table = inject('wordStore')(observer(({wordStore})=>{
 const [newWordEng, setNewWordEng] = useState('')
 const [newWordRus, setNewWordRus] = useState('')
-const wordStore = DataMobX.wordStore;
+
 
 async function addWordToServer() {
     if (newWordEng.trim() === '' || newWordRus.trim() === '') {
@@ -32,7 +31,7 @@ async function addWordToServer() {
       wordStore.toggleFlag();
 }
 return ( //возвращаем разметку таблицы, создаем функцию map для обращения к каждому объекту из массива и использования их в TableItem
-    <DataMobX.observerComponent>
+    
     <div>
     
     <div className={style.table}>
@@ -78,8 +77,8 @@ placeholder="Russian"
     </div>
     
     </div>
-    </DataMobX.observerComponent>
+   
     
-)})
+)}))
 
 export default Table;

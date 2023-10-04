@@ -1,5 +1,4 @@
-import DataMobX from "../../stores/WordsStore";
-import {observer} from "mobx-react";
+import {observer, inject} from "mobx-react";
 import { useState } from 'react'
 import Card from "../../components/Card/Card"
 import style from "./slider.module.scss"
@@ -7,17 +6,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleLeft,faCircleRight } from '@fortawesome/free-solid-svg-icons';  //импортируем компонент Card, массив с данными для карточек, стили
 
 
-const Slider = observer(()=>{
+const Slider = inject('wordStore') (observer(({wordStore})=>{
 const [translated, setTranslated] = useState (true); //создаем состояние для кнопки перевода
 const [count, setCount] = useState (0) //получаем индекс объекта массива, чтобы получить нужный нам объект, изначальный индекс 0
 const [cardCount, setCardCount] = useState (0) //задаем состояние для подсчета изученных карточек
-const wordStore = DataMobX.wordStore;
 
-
-const object = wordStore.words && wordStore.words[count]; //создаем переменную для объекта массива
+if (!wordStore.words && wordStore.words.length === 0) {
+  return <h1>Loading...</h1>;
+}; 
+const object = wordStore.words && wordStore.words[count];
 
 if (!object) {
-  return <h1>loading</h1>;
+  return <h1>Loading...</h1>;
 }
 
 function handleClickCount (){ //создаем функцию для подсчета изученных карточек
@@ -52,11 +52,6 @@ function handleClickPrev() {
   }
 
 
-if (!wordStore.words){ // если массив не был передан, то высвечивается сообщение о загрузке
-return <h1>loading</h1>
-}
-
-
 return ( 
     <div>
     <div className={style.slider}>
@@ -79,7 +74,7 @@ return (
    
     
 )
-}) //создаем компонент Slider
+})) 
     
     
 
