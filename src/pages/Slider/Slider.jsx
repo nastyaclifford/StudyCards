@@ -29,8 +29,6 @@ function showTranslation () { //создаем функцию, которая с
     handleClickCount ();  
 }
 
-
-
 function handleClickPrev() {
     let copyCount = count;
     if (copyCount === 0) {
@@ -41,7 +39,7 @@ function handleClickPrev() {
     setTranslated(true);
   }
   
-  function handleClickNext() {
+function handleClickNext() {
     let copyCount = count;
     if (copyCount === wordStore.words.length - 1) {
       setCount(0);
@@ -53,9 +51,9 @@ function handleClickPrev() {
 
 
 return ( 
-    <div>
-    <div className={style.slider}>
-     <button className={style.button_prev} onClick={handleClickPrev}><FontAwesomeIcon icon={faCircleLeft} /></button> 
+<div>
+  <div className={style.slider}>
+    <button className={style.button_prev} onClick={handleClickPrev}><FontAwesomeIcon icon={faCircleLeft} /></button> 
     <Card 
     english = {object.english}
     transcription = {object.transcription}
@@ -64,18 +62,12 @@ return (
     key = {object.index}
     translated = {translated}
     showTranslation = {showTranslation}
-    
     />
-<button className={style.button_next} onClick={handleClickNext}><FontAwesomeIcon icon={faCircleRight} /></button>
-
-   </div>
-   <div className={style.text}>Cards studied: {cardCount}</div>
-   </div>
-   
-    
+    <button className={style.button_next} onClick={handleClickNext}><FontAwesomeIcon icon={faCircleRight} /></button>
+  </div>
+  <div className={style.text}>Cards studied: {cardCount}</div>
+</div>
 )
 })) 
-    
-    
 
 export default Slider;

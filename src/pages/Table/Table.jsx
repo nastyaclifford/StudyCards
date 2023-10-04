@@ -7,11 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons'; 
 
 
-
 const Table = inject('wordStore')(observer(({wordStore})=>{
 const [newWordEng, setNewWordEng] = useState('')
 const [newWordRus, setNewWordRus] = useState('')
-
 
 async function addWordToServer() {
     if (newWordEng.trim() === '' || newWordRus.trim() === '') {
@@ -31,54 +29,30 @@ async function addWordToServer() {
       wordStore.toggleFlag();
 }
 return ( //возвращаем разметку таблицы, создаем функцию map для обращения к каждому объекту из массива и использования их в TableItem
-    
-    <div>
-    
-    <div className={style.table}>
+<div>
+  <div className={style.table}>
     <div className={style.row_input}>
-    <input
-type="text"
-value={newWordEng}
-onChange={(e) => setNewWordEng(e.target.value)} 
-className = {style.input}
-placeholder="English"
-/>
-<input
-type="text"
-value={newWordRus}
-onChange={(e) => setNewWordRus(e.target.value)} 
-className = {style.input} 
-placeholder="Russian"
-/>
-                <div className={style.col}>
-               <button disabled= {newWordEng.length === 0 || newWordRus.length === 0}  onClick={addWordToServer} ><FontAwesomeIcon icon={faCircleCheck} /></button> 
-            </div>  
-            </div>  
-            </div>
-
-
-
-
-   
-    <div className={style.table}>
+      <input type="text" value={newWordEng} onChange={(e) => setNewWordEng(e.target.value)} className = {style.input} placeholder="English"/>
+      <input type="text" value={newWordRus} onChange={(e) => setNewWordRus(e.target.value)} className = {style.input} placeholder="Russian"/>
+    <div className={style.col}>
+      <button disabled= {newWordEng.length === 0 || newWordRus.length === 0}  onClick={addWordToServer} ><FontAwesomeIcon icon={faCircleCheck} /></button> 
+    </div>  
+    </div>  
+  </div>
+  <div className={style.table}>
     <div className={style.row}>
-    <div className={style.col}>English</div>
-    <div className={style.col}>Transcription</div>
-    <div className={style.col}>Russian</div>
-    <div className={style.col}>Edit</div>
+      <div className={style.col}>English</div>
+      <div className={style.col}>Transcription</div>
+      <div className={style.col}>Russian</div>
+      <div className={style.col}>Edit</div>
     </div>
-
 {wordStore.words.map ((item, index)=> (
     <TableItem 
     key = {index}
     {...item} flag={wordStore.flag} setFlag={wordStore.toggleFlag}/>
     ))}
-    
-    </div>
-    
-    </div>
-   
-    
+  </div>
+</div>
 )}))
 
 export default Table;
