@@ -13,6 +13,7 @@ This is an application called Simple, which contains the following pages:
 ## Technologies & tools 
 
 * ReactJS
+* MobX
 * SASS, CSS
 * GitHub
 * APIs (http://itgirlschool.justmakeit.ru/api/words). All APIs used at work are used solely for educational purposes and are not used for commercial purposes.
