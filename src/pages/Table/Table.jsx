@@ -1,15 +1,39 @@
 import {observer,inject} from 'mobx-react';
-import React, {useState } from "react";
+import React, {useState, useEffect } from "react";
 import TableItem from "../../components/TableItem/TableItem"
 import POST from "../../services/POST";
+import DEL from "../../services/DEL";
+import GET from "../../services/GET";
 import style from './table.module.scss' //импортируем компонент TableItem, массив с информацией о карточках, стили
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons'; 
 
 
 const Table = inject('wordStore')(observer(({wordStore})=>{
+
 const [newWordEng, setNewWordEng] = useState('')
 const [newWordRus, setNewWordRus] = useState('')
+const [itemsToRender, setItemsToRender] = useState([])
+
+useEffect(() =>{
+  const timer = setTimeout(()=> {
+    wordStore = getWordServer()
+    setItemsToRender(wordStore.words?.map((item,index) => (
+    <TableItem 
+      key = {index}
+      {...item} flag={wordStore.flag} setFlag={wordStore.toggleFlag} 
+      deleteWord={()=>deleteWord(item.id)} />
+      )));
+},1000);
+return ()=> clearTimeout(timer);
+}, [wordStore.words, wordStore.flag]);
+
+
+async function deleteWord (id) { 
+  await DEL.delWord(id)
+}
+
+
 
 async function addWordToServer() {
     if (newWordEng.trim() === '' || newWordRus.trim() === '') {
@@ -23,11 +47,13 @@ async function addWordToServer() {
         tags: "",
         tags_json: "[]"
       };
+      wordStore.getWordServer()
       await POST.postWord(newWordData);
       setNewWordEng('');
       setNewWordRus('');
       wordStore.toggleFlag();
 }
+
 return ( //возвращаем разметку таблицы, создаем функцию map для обращения к каждому объекту из массива и использования их в TableItem
 <div>
   <div className={style.table}>
@@ -46,11 +72,7 @@ return ( //возвращаем разметку таблицы, создаем 
       <div className={style.col}>Russian</div>
       <div className={style.col}>Edit</div>
     </div>
-{wordStore.words.map ((item, index)=> (
-    <TableItem 
-    key = {index}
-    {...item} flag={wordStore.flag} setFlag={wordStore.toggleFlag}/>
-    ))}
+
   </div>
 </div>
 )}))

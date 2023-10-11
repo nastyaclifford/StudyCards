@@ -12,7 +12,7 @@ export default function TableItem(props) {
     const [newEnglish, setNewEnglish] = useState('');
     const [newTranscription, setNewTranscription] = useState('');
     const [newRussian, setNewRussian] = useState('');
-    const {english, transcription, russian, id, flag, setFlag} = props;
+    const {english, transcription, russian, id, flag, setFlag, deleteWord} = props;
 
     const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const rusUpper = rusLower.toUpperCase()
@@ -85,10 +85,7 @@ function isValidString(str, charset) {
       }
   
 
-    async function deleteWord () { 
-        await DEL.delWord(id)
-        setFlag(!flag)
-    }
+    
 
     function editWord () { 
         setEdit(!edit)

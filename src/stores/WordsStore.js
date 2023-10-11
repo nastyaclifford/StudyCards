@@ -10,6 +10,10 @@ class WordStore {
     this.words = wordServer;
   }
 
+  @action setWords = (newWords) => {
+    this.words = newWords;
+  };
+
   @action toggleFlag = () => {
     this.flag = !this.flag;
   };
