@@ -13,6 +13,7 @@ This is an application called Simple, which contains the following pages:
 ## Technologies & tools 
 
 * ReactJS
+* React-router
 * MobX
 * SASS, CSS
 * GitHub
