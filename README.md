@@ -12,6 +12,8 @@ This is an application called Simple, which contains the following pages:
 - All Words (table with all available words for studying, currently contains a few words as an example, more words will be added to it in the future). It is possible to add new words, edit or delete existed ones.
 - Error page
 
+The application design is responsive and works well on both desktop and mobile devices.
+
 ## Technologies & tools 
 
 * ReactJS
