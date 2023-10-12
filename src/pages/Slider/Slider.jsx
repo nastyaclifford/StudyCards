@@ -3,13 +3,13 @@ import { useState } from 'react'
 import Card from "../../components/Card/Card"
 import style from "./slider.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleLeft,faCircleRight } from '@fortawesome/free-solid-svg-icons';  //импортируем компонент Card, массив с данными для карточек, стили
+import { faCircleLeft,faCircleRight } from '@fortawesome/free-solid-svg-icons';  
 
 
 const Slider = inject('wordStore') (observer(({wordStore})=>{
-const [translated, setTranslated] = useState (true); //создаем состояние для кнопки перевода
-const [count, setCount] = useState (0) //получаем индекс объекта массива, чтобы получить нужный нам объект, изначальный индекс 0
-const [cardCount, setCardCount] = useState (0) //задаем состояние для подсчета изученных карточек
+const [translated, setTranslated] = useState (true); 
+const [count, setCount] = useState (0) 
+const [cardCount, setCardCount] = useState (0) 
 
 if (!wordStore.words && wordStore.words.length === 0) {
   return <h1>Loading...</h1>;
@@ -20,12 +20,12 @@ if (!object) {
   return <h1>Loading...</h1>;
 }
 
-function handleClickCount (){ //создаем функцию для подсчета изученных карточек
+function handleClickCount (){ 
     setCardCount(cardCount + 1);
 }  
 
-function showTranslation () { //создаем функцию, которая сработает при нажатии на кнопку перевода
-    setTranslated(false); //изменить translated на false
+function showTranslation () { 
+    setTranslated(false); 
     handleClickCount ();  
 }
 

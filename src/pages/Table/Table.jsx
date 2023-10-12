@@ -4,7 +4,7 @@ import TableItem from "../../components/TableItem/TableItem"
 import POST from "../../services/POST";
 import DEL from "../../services/DEL";
 import GET from "../../services/GET";
-import style from './table.module.scss' //импортируем компонент TableItem, массив с информацией о карточках, стили
+import style from './table.module.scss' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleCheck} from '@fortawesome/free-solid-svg-icons'; 
 
@@ -54,7 +54,7 @@ async function addWordToServer() {
       wordStore.toggleFlag();
 }
 
-return ( //возвращаем разметку таблицы, создаем функцию map для обращения к каждому объекту из массива и использования их в TableItem
+return ( 
 <div>
   <div className={style.table}>
     <div className={style.row_input}>

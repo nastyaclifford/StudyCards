@@ -1,17 +1,16 @@
 import { useEffect, useRef } from 'react'
-import style from './card.module.scss'; //подключаем стили, состояние useState
+import style from './card.module.scss'; 
 
 
-export default function Card(props) { //создаем компонент Card
-    const { english, transcription, russian, translated, showTranslation} = props; //обращаемся к пропсам, которые находятся в компоненте Slider
-    
+export default function Card(props) {
+    const { english, transcription, russian, translated, showTranslation} = props; 
     const buttonRef = useRef();
 
     useEffect (()=>{
         buttonRef.current.focus()
     }, [english])
    
-    return( //возвращаем разметку для карточки, вставляем значения из пропсов, добавляем обработчик события onclick кнопке и условия показа перевода
+    return( 
         <div>
                 <div className={style.col}>
                     <div className={style.row}>{english}</div>
