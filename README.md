@@ -8,7 +8,7 @@
 
 This is an application called Simple, which contains the following pages: 
 - About (general information and description of the application)
-- Start Practising (card game to study words). It allows you to view translations and it also counts how many words you've learned during the session.
+- Start Practicing (card game to study words). It allows you to view translations and it also counts how many words you've learned during the session.
 - All Words (table with all available words for studying, currently contains a few words as an example, more words will be added to it in the future). It is possible to add new words, edit or delete existed ones.
 - Error page
 
