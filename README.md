@@ -2,6 +2,8 @@
 
 / website /
 
+<img align="center" width=800 src="readme_pics/simple_pic.png" />
+
 ## Application Description and Structure
 
 This is an application called Simple, which contains the following pages: 
