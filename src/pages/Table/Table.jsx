@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import TableItem from "../../components/TableItem/TableItem";
 import POST from "../../services/POST";
 import DEL from "../../services/DEL";
+import PUT from "../../services/PUT";
 import style from './table.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +20,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
         <TableItem
           key={index}
           {...item} flag={wordStore.flag} setFlag={wordStore.toggleFlag}
-          deleteWord={() => deleteWord(item.id)} />
+          deleteWord={() => deleteWord(item.id)} updateWord={() => updateWord(item.id)} />
       )));
     }, 1000);
     return () => clearTimeout(timer);
@@ -28,9 +29,14 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
   async function deleteWord(id) {
     await DEL.delWord(id);
+    wordStore.getWordServer();
+    console.log(id)
   }
 
-
+  async function updateWord (id, updatedData) { 
+    await PUT.putWord(id, updatedData); 
+    wordStore.getWordServer();
+}
 
   async function addWordToServer() {
     if (newWordEng.trim() === '' || newWordRus.trim() === '') {
@@ -44,11 +50,12 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
       tags: "",
       tags_json: "[]"
     };
-    wordStore.getWordServer();
     await POST.postWord(newWordData);
     setNewWordEng('');
     setNewWordRus('');
     wordStore.toggleFlag();
+    wordStore.getWordServer();
+    console.log(2222);
   }
 
   return (
@@ -69,7 +76,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
           <div className={style.col}>Russian</div>
           <div className={style.col}>Edit</div>
         </div>
-
+        {itemsToRender}
       </div>
     </div>
   );

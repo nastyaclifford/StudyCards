@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import style from './tableItem.module.scss'
-import DEL from '../../services/DEL'
 import PUT from '../../services/PUT';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons'; 
@@ -12,7 +11,7 @@ export default function TableItem(props) {
     const [newEnglish, setNewEnglish] = useState('');
     const [newTranscription, setNewTranscription] = useState('');
     const [newRussian, setNewRussian] = useState('');
-    const {english, transcription, russian, id, flag, setFlag, deleteWord} = props;
+    const {english, transcription, russian, id, flag, setFlag, deleteWord, updateWord } = props;
 
     const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const rusUpper = rusLower.toUpperCase()
@@ -64,7 +63,9 @@ function isValidString(str, charset) {
   }
   
 
+
   async function onSaveButtonClick() {
+    console.log('onSaveButtonClick called with ID:', id);
     if (
         isValidString(newEnglish, en) &&
         isValidString(newTranscription, en) &&
@@ -78,18 +79,16 @@ function isValidString(str, charset) {
                 tags: "",
                 tags_json: "[]"
             };
-                await PUT.putWord(id, updatedData); 
-                setFlag(!flag); 
+            updateWord(id, updatedData);
+            setFlag(!flag); 
     } else 
         console.log("Please, check your words once again");
       }
   
-
-    
-
-    function editWord () { 
+      function editWord () { 
         setEdit(!edit)
     }
+
     return( 
         <div className={style.row}>
                     {edit === true ? <div className={style.col}>{english}</div> : <input name="newEnglish" onChange={handleChange} onKeyPress = {checkLang} className={newEnglish.length === 0 ? style.input_error : style.input} placeholder={english}></input>}
