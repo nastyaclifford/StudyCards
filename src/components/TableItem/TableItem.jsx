@@ -11,7 +11,7 @@ export default function TableItem(props) {
     const [newEnglish, setNewEnglish] = useState('');
     const [newTranscription, setNewTranscription] = useState('');
     const [newRussian, setNewRussian] = useState('');
-    const {english, transcription, russian, id, flag, setFlag, deleteWord, updateWord } = props;
+    const {english, transcription, russian, id, flag, setFlag, delWord, updateWord } = props;
 
     const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const rusUpper = rusLower.toUpperCase()
@@ -100,7 +100,7 @@ function isValidString(str, charset) {
                          {edit === true ? <button onClick={editWord} ><FontAwesomeIcon icon={faPenToSquare} /></button>: <button onClick={editWord} ><FontAwesomeIcon icon={faRotateLeft} /></button>}
                     </div> </div>
                     <div className={style.col}>
-                    <button onClick={deleteWord} ><FontAwesomeIcon icon={faTrash} /></button>
+                    <button onClick={delWord} ><FontAwesomeIcon icon={faTrash} /></button>
                     </div> 
                 </div>  
     )

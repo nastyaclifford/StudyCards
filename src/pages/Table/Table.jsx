@@ -20,7 +20,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
         <TableItem
           key={index}
           {...item} flag={wordStore.flag} setFlag={wordStore.toggleFlag}
-          deleteWord={() => deleteWord(item.id)} updateWord={() => updateWord(item.id)} />
+          delWord={() => deleteWord(item.id)} /* updateWord={() => updateWord(item.id) }*/ />
       )));
     }, 1000);
     return () => clearTimeout(timer);
@@ -29,14 +29,13 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
   async function deleteWord(id) {
     await DEL.delWord(id);
-    wordStore.getWordServer();
-    console.log(id)
+    console.log("delete")
   }
 
-  async function updateWord (id, updatedData) { 
+/*   async function updateWord (id, updatedData) { 
     await PUT.putWord(id, updatedData); 
     wordStore.getWordServer();
-}
+} */
 
   async function addWordToServer() {
     if (newWordEng.trim() === '' || newWordRus.trim() === '') {
