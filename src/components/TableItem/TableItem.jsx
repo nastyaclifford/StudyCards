@@ -11,7 +11,7 @@ export default function TableItem(props) {
     const [newEnglish, setNewEnglish] = useState('');
     const [newTranscription, setNewTranscription] = useState('');
     const [newRussian, setNewRussian] = useState('');
-    const {english, transcription, russian, id, flag, setFlag, delWord, updateWord } = props;
+    const {english, transcription, russian, id, flag, setFlag, delWord, updWord } = props;
 
     const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const rusUpper = rusLower.toUpperCase()
@@ -79,8 +79,8 @@ function isValidString(str, charset) {
                 tags: "",
                 tags_json: "[]"
             };
-            updateWord(id, updatedData);
-            setFlag(!flag); 
+            updWord(id, updatedData);
+            
     } else 
         console.log("Please, check your words once again");
       }
