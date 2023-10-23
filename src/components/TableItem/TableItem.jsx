@@ -80,6 +80,7 @@ function isValidString(str, charset) {
                 tags_json: "[]"
             };
             updWord(id, updatedData);
+            console.log(updatedData);
             
     } else 
         console.log("Please, check your words once again");
