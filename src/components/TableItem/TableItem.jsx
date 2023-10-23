@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import style from './tableItem.module.scss'
-import PUT from '../../services/PUT';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faCircleCheck, faRotateLeft, faTrash } from '@fortawesome/free-solid-svg-icons'; 
 
@@ -11,7 +10,7 @@ export default function TableItem(props) {
     const [newEnglish, setNewEnglish] = useState('');
     const [newTranscription, setNewTranscription] = useState('');
     const [newRussian, setNewRussian] = useState('');
-    const {english, transcription, russian, id, flag, setFlag, delWord, updWord } = props;
+    const {english, transcription, russian, id, delWord, updWord } = props;
 
     const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const rusUpper = rusLower.toUpperCase()

@@ -32,8 +32,8 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
     console.log("delete")
   }
 
-async function updateWord (id) { 
-    await PUT.putWord(id); 
+async function updateWord (id,updatedData) { 
+    await PUT.putWord(id, updatedData); 
     console.log("updated", wordStore)
 } 
 
