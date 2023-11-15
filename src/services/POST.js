@@ -3,7 +3,10 @@ export class POST {
     try {
       await fetch("/api/words/add", {
         method: "POST",
-        headers: { "Content-Type": "application/json;charset=utf-8" },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json;charset=utf-8",
+        },
         body: JSON.stringify(data),
       });
     } catch (e) {
