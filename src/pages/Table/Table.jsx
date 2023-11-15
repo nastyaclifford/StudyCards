@@ -20,7 +20,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
         <TableItem
           key={index}
           {...item} flag={wordStore.flag} setFlag={wordStore.toggleFlag}
-          delWord={() => deleteWord(item.id)} updWord={() => updateWord(item.id) } />
+          delWord={() => deleteWord(item.id)} updWord={(id, updatedData) => updateWord(id, updatedData)} />
       )));
     }, 1000);
     return () => clearTimeout(timer);
