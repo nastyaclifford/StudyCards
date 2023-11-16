@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/StudyCards/static/css/main.d6b47719.css",
+    "main.js": "/StudyCards/static/js/main.52020f38.js",
+    "index.html": "/StudyCards/index.html",
+    "main.d6b47719.css.map": "/StudyCards/static/css/main.d6b47719.css.map",
+    "main.52020f38.js.map": "/StudyCards/static/js/main.52020f38.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6b47719.css",
+    "static/js/main.52020f38.js"
+  ]
+}
