@@ -2,7 +2,7 @@ export class PUT {
   static async putWord(id, word) {
     try {
       const resp = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${id}/update`,
+        `https://itgirlschool.justmakeit.ru/api/words/${id}/update`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json;charset=utf-8" },

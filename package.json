@@ -3,7 +3,7 @@
   "homepage": "https://nastyaclifford.github.io/StudyCards/",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://itgirlschool.justmakeit.ru",
+  "proxy": "https://itgirlschool.justmakeit.ru",
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",

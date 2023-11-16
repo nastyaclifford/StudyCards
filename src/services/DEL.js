@@ -1,7 +1,7 @@
 export class DEL {
   static async delWord(id, word) {
     try {
-      await fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
+      await fetch(`https://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
         method: "POST",
       });
     } catch (e) {
