@@ -26,7 +26,7 @@ function App() {
             </header>
        <main>
       <Routes>
-    <Route path="/" element={<Home/>}/>
+    <Route path="StudyCards" element={<Home/>}/>
     <Route path="about" element={<Home/>}/>
     <Route path="startpractising" element={<Slider/>}/>
     <Route path="allwords" element={<Table/>}/>
