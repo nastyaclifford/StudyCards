@@ -1,6 +1,6 @@
 # React application with a Game to learn English words
 
-/ website /
+ https://nastyaclifford.github.io/StudyCards/ 
 
 <img align="center" width=800 src="readme_pics/simple_pic.png" />
 
