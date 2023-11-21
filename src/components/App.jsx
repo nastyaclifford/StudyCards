@@ -31,7 +31,7 @@ function App() {
     <Route path="startpractising" element={<Slider/>}/>
     <Route path="allwords" element={<Table/>}/>
    
-    <Route path="*" element={<Home />} />
+    <Route path="*" element={<Notfound />} />
        </Routes>
        </main>
        <footer></footer>
