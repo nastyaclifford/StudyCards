@@ -1,5 +1,7 @@
 # React application with a Game to learn English words
 
+This project involved creating a game for learning English words, designed to assist people who are studying English by making it easier and faster to memorize new vocabulary. The game allows users to create customized lists of words, and they can update, delete, and edit these lists as needed.	
+
  https://nastyaclifford.github.io/StudyCards/ 
 
 <img align="center" width=800 src="readme_pics/simple_pic.png" />
